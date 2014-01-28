@@ -1,7 +1,21 @@
-工程环境 win7系统 node-version:0.10.24 express-version:3.4.7
+工程环境 win7系统 node-version:0.10.24 express-version:3.4.7 MongoDB 2.4.9
 1.创建工程
 	在指定目录下使用express -e ejs microblog命令来创建express工程.
 	  注意命令-t已失效 -t默认使用jade模版
 	目录创建完毕后cd到microblog的目录下,运行npm install命令将ejs和express的
+	注意: express3.x不支持ejs的partials方法需要配置"express-partials" : "*"
+	在app.js中需要引用到flash并且在congfig中需要use
 	  依赖加入工程.启动服务器,访问http://localhost:3000出现欢迎页面则创建成功
-2.
+2.建立与数据库的联系
+	1.1 需要装数据库MongoDB,数据库下载地址http://www.mongodb.org/downloads
+		下载后解压 放到自己想放的目录下,在目录下建立data文件夹里面创建db和log文件夹 
+		在log文件夹中创建MongoDB.log作为日志的输出位置
+		bin目录下命令行下运行mongod -dbpath "C:\Program Files\mongodb\data\db"
+		再开一个cmd到bin下运行mongo可看到连接进去 
+		将mongo作为服务随windows启动: mongod --dbpath "C:\Program Files\mongodb\data\db" --logpath "C:\Program Files\mongodb\data\log\MongoDB.log" --install --serviceName "MongoDB"
+		运行命令就能看到提示net start MongoDB就能启动服务了
+	1.2 在nodejs中连接数据库需要中间件的支持,在package.json中需要添加以下的插件:
+		"connect-mongo": ">=0.1.7",
+   	 	"mongodb": ">= 0.9.9",
+		第一个是连接支持第二个是数据库支持
+	
