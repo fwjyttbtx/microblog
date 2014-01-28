@@ -1,0 +1,7 @@
+工程环境 win7系统 node-version:0.10.24 express-version:3.4.7
+1.创建工程
+	在指定目录下使用express -e ejs microblog命令来创建express工程.
+	  注意命令-t已失效 -t默认使用jade模版
+	目录创建完毕后cd到microblog的目录下,运行npm install命令将ejs和express的
+	  依赖加入工程.启动服务器,访问http://localhost:3000出现欢迎页面则创建成功
+2.
