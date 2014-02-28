@@ -1,19 +1,26 @@
-<form class="form-horizontal" method="post">
+<form class="form-horizontal" method="post" id="user-reg">
 	<fieldset>
 		<legend>用户注册</legend>
 		<div class="control-group">
 			<label class="control-label" for="username">用户名</label>
 			<div class="controls">
-				<input type="text" class="input-xlarge" id="username"
+				<input type="text" class="input-xlarge form-control" id="username"
 					name="username">
-				<p class="help-block">你的账户名称, 用于登陆和显示.</p>
+                <i class="icon-remove" id="username-error-icon" style="display: none;"></i>
+                <i class="icon-ok" id="username-ok-icon" style="display: none;"></i>
+                <span class="help-inline username-error"></span>
+				<p class="help-block">你的账户名称， 用于登陆和显示。</p>
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="password">口令</label>
+			<label class="control-label" for="password">密码</label>
 			<div class="controls">
 				<input type="password" class="input-xlarge" id="password"
 					name="password">
+                <i class="icon-remove" id="password-error-icon" style="display: none;"></i>
+                <i class="icon-ok" id="password-ok-icon" style="display: none;"></i>
+                <span class="help-inline password-error"></span>
+                <p class="help-block">您的密码，尽可能选择复杂的密码，长度大于3</p>
 			</div>
 		</div>
 		<div class="control-group">
@@ -21,6 +28,26 @@
 			<div class="controls">
 				<input type="password" class="input-xlarge" id="password-repeat"
 					name="password-repeat">
+                <i class="icon-remove" id="password-repeat-error-icon" style="display: none;"></i>
+                <i class="icon-ok" id="password-repeat-ok-icon" style="display: none;"></i>
+                <span class="help-inline password-repeat-error"></span>
+                <p class="help-block">确保您记得密码</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="captcha">验证码</label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" id="captcha"
+					name="captcha">
+                <i class="icon-remove" id="captcha-error-icon" style="display: none;"></i>
+                <i class="icon-ok" id="captcha-ok-icon" style="display: none;"></i>
+                <span class="help-inline captcha-error"></span>
+                <p class="help-block">点击图片更换看不清的图片</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+                <img class="captchaImg" />
 			</div>
 		</div>
 		<div class="form-actions">

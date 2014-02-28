@@ -80,11 +80,17 @@ exports.doReg = function(req, res){
 	   name : req.body.username,
 	   password : password
 	});
-	
+
+    //检查验证码是否正确
+    if(req.body["captcha"].toLocaleString().toLowerCase() != req.session.captchaTxt){
+        req.flash("error", "验证码不正确,请重新输入");
+        return res.redirect("/reg");
+    }
+
 	//检查用户名是否已存在
 	User.get(newUser.name, function(err, user){
 	   if(user){
-	       err = "User already exists!";
+	       err = "用户已存在!";
 	   } 
 	   if(err){
 	       req.flash('error', err);

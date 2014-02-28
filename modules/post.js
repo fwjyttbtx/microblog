@@ -15,14 +15,14 @@ function Post(username, post, time) {
 module.exports = Post;
 
 Post.prototype.save = function save(callback) {
-    // 存入 Mongodb 的文檔
+    // 存入 Mongodb 的文档
     var post = {
         user: this.user,
         post: this.post,
         time: this.time
     };
     
-    mongodb.close();
+    //mongodb.close();
     mongodb.open(function(err, db) {
         if (err) {
           return callback(err);
@@ -44,7 +44,7 @@ Post.prototype.save = function save(callback) {
 };
 
 Post.get = function get(username, callback) {
-    mongodb.close();
+    //mongodb.close();
     mongodb.open(function(err, db) {
         if (err) {
             return callback(err);

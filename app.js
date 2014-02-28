@@ -16,7 +16,7 @@ var app = express();
 
 // all environments
 app.configure(function(){
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 3131);
 	app.set('views', path.join(__dirname, 'views'));
 	app.set('view engine', 'ejs');
 	app.use(express.favicon());
@@ -27,14 +27,14 @@ app.configure(function(){
 	app.use(express.cookieParser());
 	app.use(partials());
 	app.use(flash());
-	app.use(express.session({
+    app.use(express.session({
 		secret: settings.cookieSecret,
 		store: new MongoStore({
 			db: settings.db
 		})
 	}));
-	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
 });
 
 //视图支持
@@ -74,7 +74,8 @@ app.get('/login', routes.login);
 app.post('/login', routes.doLogin);
 app.get('/logout', routes.logout);
 app.get('/users', user.list);
-
+app.all('/getCaptcha', user.createCaptcha);
+app.get('/checkCaptcha', user.checkCaptcha);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

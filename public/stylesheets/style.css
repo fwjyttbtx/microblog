@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FE;
 }
+
+.captchaImg {
+    cursor: pointer;
+}
+
+.help-block {
+    margin-top: 10px;
+}
