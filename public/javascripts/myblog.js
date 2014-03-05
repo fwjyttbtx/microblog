@@ -16,30 +16,30 @@
         checkCaptcha();
     });
 
-    $("#username").blur(function(){
-        var usernameVal = $("#username").val();
+    $("#reg-username").blur(function(){
+        var usernameVal = $("#reg-username").val();
         if(!/^[A-Za-z0-9_-]{3,20}$/.test(usernameVal)){
-            $("#username").parent("div").parent("div").addClass("error");
+            $("#reg-username").parent("div").parent("div").addClass("error");
             $("#username-error-icon").show();
             $("#username-ok-icon").hide();
             $(".username-error").text("用户名必须大于3个字符并且小于20个字符");
         }else{
-            $("#username").parent("div").parent("div").removeClass("error");
+            $("#reg-username").parent("div").parent("div").removeClass("error");
             $("#username-error-icon").hide();
             $("#username-ok-icon").show();
             $(".username-error").text("");
         }
     });
-    $("#password, #password-repeat").blur(function(){
-        var passwordVal = $("#password").val();
+    $("#reg-password, #password-repeat").blur(function(){
+        var passwordVal = $("#reg-password").val();
         var passwordRepeatVal = $("#password-repeat").val();
         if(passwordVal == null || passwordVal.trim() == "" || / /.test(passwordVal)){
-            $("#password").parent("div").parent("div").addClass("error");
+            $("#reg-password").parent("div").parent("div").addClass("error");
             $("#password-error-icon").show();
             $("#password-ok-icon").hide();
             $(".password-error").text("密码不能为空,且不能有空格");
         }else{
-            $("#password").parent("div").parent("div").removeClass("error");
+            $("#reg-password").parent("div").parent("div").removeClass("error");
             $("#password-error-icon").hide();
             $("#password-ok-icon").show();
             $(".password-error").text("");
